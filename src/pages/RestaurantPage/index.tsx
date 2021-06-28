@@ -1,7 +1,7 @@
 import restaurantLogo from '../../assets/restaurant-logo.png';
-import { BiSearch } from 'react-icons/bi'
 import '../../styles/home.scss';
 import { Input } from '../../components/Input';
+import { Accordion } from '../../components/Accordion';
 
 const RestaurantPage = () => {
   return (
@@ -20,6 +20,21 @@ const RestaurantPage = () => {
         </div>
       </div>
       <Input />
+      <Accordion 
+        title="Almoços"
+      >
+        <h1>Almoços</h1>
+      </Accordion>
+      <Accordion 
+        title="Bebidas"
+      >
+        <h1>Bebidas</h1>
+      </Accordion>
+      <Accordion 
+        title="Sobremesas"
+      >
+        <h1>Sobremesas</h1>
+      </Accordion>
     </div>
   )
 }

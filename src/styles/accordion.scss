@@ -1,0 +1,44 @@
+.accordion-section {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.accordion-button {
+  cursor: pointer;
+  outline: none;
+  padding: 1.125rem;
+  border: none;
+  display: flex;
+  background: #fff;
+  align-items: center;
+  border-bottom: 2px solid #404040;
+}
+
+.accordion-title {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.accordion-icon {
+  margin-left: auto;
+  transition: transform 0.2 ease;
+  height: 20px;
+}
+
+.rotate {
+  transform: rotate(90deg);
+}
+
+.accordion-content {
+  background: #fff;
+  overflow: hidden;
+  transition: max-height 0.2s ease;
+}
+
+.accordion-text {
+  font-weight: 400;
+  font-size: 0.875rem;
+  padding: 1.125rem;
+}
+
