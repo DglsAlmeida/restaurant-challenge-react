@@ -2,12 +2,14 @@ import restaurantLogo from '../../assets/restaurant-logo.png';
 import '../../styles/home.scss';
 import { Input } from '../../components/Input';
 import { Accordion } from '../../components/Accordion';
+import { Card } from '../../components/Card/index';
+import foodImg from '../../assets/food.png';
 
 const RestaurantPage = () => {
   return (
     <div className="restaurant-container">
       <div className="restaurant-content">
-        <img src={restaurantLogo} alt="" />
+        <img src={restaurantLogo} alt="restaurant logo" />
         <div className="restaurant-description">
           <span className="restaurant-title">Nome do Restaurante</span>
           <p>
@@ -23,17 +25,72 @@ const RestaurantPage = () => {
       <Accordion 
         title="Almoços"
       >
-        <h1>Almoços</h1>
+        <>
+          <Card 
+            img={foodImg} 
+            name="Nome Restaurante" 
+          />
+          <Card 
+            img={foodImg} 
+            name="Nome Restaurante" 
+          />
+          <Card 
+            img={foodImg} 
+            name="Nome Restaurante" 
+          />
+          <Card 
+            img={foodImg} 
+            name="Nome Restaurante" 
+          />
+          <Card 
+            img={foodImg} 
+            name="Nome Restaurante" 
+          />
+          <Card 
+            img={foodImg} 
+            name="Nome Restaurante" 
+          />
+           <Card 
+            img={foodImg} 
+            name="Nome Restaurante" 
+          />
+        </>
       </Accordion>
       <Accordion 
         title="Bebidas"
       >
-        <h1>Bebidas</h1>
+        <>
+          <Card 
+            img={foodImg} 
+            name="Nome Restaurante" 
+          />
+          <Card 
+            img={foodImg} 
+            name="Nome Restaurante" 
+          />
+          <Card 
+            img={foodImg} 
+            name="Nome Restaurante" 
+          />
+        </>
       </Accordion>
       <Accordion 
         title="Sobremesas"
       >
-        <h1>Sobremesas</h1>
+        <>
+          <Card 
+            img={foodImg} 
+            name="Nome Restaurante" 
+          />
+          <Card 
+            img={foodImg} 
+            name="Nome Restaurante" 
+          />
+          <Card 
+            img={foodImg} 
+            name="Nome Restaurante" 
+          />
+        </>
       </Accordion>
     </div>
   )

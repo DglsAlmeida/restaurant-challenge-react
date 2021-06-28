@@ -1,4 +1,4 @@
-import { ReactElement, useRef, useState } from 'react';
+import { ReactElement, useState } from 'react';
 import '../../styles/accordion.scss';
 import chevronRight from '../../assets/chevron-right.svg';
 
@@ -13,11 +13,9 @@ export const Accordion = ({ title, children }: AccordionProps) => {
   const [ height, setHeight ] = useState("0px");
   const [ rotate, setRotate ] = useState("accordion-icon");
 
-  const content = useRef<any>(null)
-
   function toggleAccordion() {
     setActive(active === "" ? "active" : "");
-    setHeight(active === "active" ? "0px" : `${content.current?.scrollHeight}px`);
+    setHeight(active === "active" ? "0px" : `100%`);
     setRotate(active === "active" ? "accordion-icon" : 'accordion-icon rotate');
   }
 
@@ -30,7 +28,7 @@ export const Accordion = ({ title, children }: AccordionProps) => {
         <p className="accordion-title">{title}</p>
         <img className={`${rotate}`} src={chevronRight} alt="chevron-right" />
       </button>
-      <div ref={content} style={{ maxHeight: `${height}`}} className="accordion-content">
+      <div style={{ height: `${height}`}} className="accordion-content">
         {children}
       </div>
     </div>
