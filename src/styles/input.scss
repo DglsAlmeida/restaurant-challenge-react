@@ -1,0 +1,25 @@
+.input-content {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+
+  svg {
+    position: absolute;
+    right: 15px;
+  }
+}
+
+.input {
+  display: block;
+  background: #0000001A;
+  font-size: 1.2rem;
+  border: 0;
+  padding: 20px;
+  box-shadow: 0px 2px 4px #0000001A;
+  border-radius: 20px;
+  padding-right: 70px;
+  width: 100%;
+  outline: none;
+}
