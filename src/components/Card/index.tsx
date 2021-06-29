@@ -11,14 +11,11 @@ interface CardProps {
 export const Card = ({ img, name, description, price}: CardProps) => {
   return (
     <a href="/" className="card-content">
-      <img className="card-img" src={img} alt="food" />
+      <img className="card-img" src={img} alt="img" />
       <div className="card-description">
         <span className="card-title">{name}</span>
-        <p>
-          Lorem ipsum dolor sit amet
-          consectetur adipiscing elit,sed do
-        </p>
-        <span>R$ 19,90</span>
+        { description && <p>{description}</p> }
+        { price && <span>R$ 19,90</span> }
       </div>
     </a>
   )
