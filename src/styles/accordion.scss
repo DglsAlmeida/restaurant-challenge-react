@@ -2,6 +2,10 @@
   display: flex;
   flex-direction: column;
   width: 100%;
+
+  &:last-child {
+    margin-bottom: 20px;
+  }
 }
 
 .accordion-button {

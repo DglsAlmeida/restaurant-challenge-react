@@ -1,5 +1,5 @@
 import restaurantLogo from '../../assets/restaurant-logo.png';
-import '../../styles/home.scss';
+import '../../styles/restaurant-page.scss';
 import { Input } from '../../components/Input';
 import { Accordion } from '../../components/Accordion';
 import { Card } from '../../components/Card/index';
