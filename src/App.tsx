@@ -1,15 +1,14 @@
 import './styles/global.scss';
 import { Header } from './components/Header';
-// import RestaurantPage from './pages/RestaurantPage';
-import Home from './pages/Home';
-
+import { BrowserRouter as Router } from 'react-router-dom';
+import Routes from './routes';
 
 const App = () => {
   return (
-    <>
+    <Router>
       <Header />
-      <Home />
-    </>
+      <Routes />
+    </Router>
   )
 }
 
