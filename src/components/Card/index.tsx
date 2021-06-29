@@ -1,5 +1,4 @@
 import '../../styles/card.scss';
-// import foodImg from '../../assets/food.png';
 
 interface CardProps {
   img: string;

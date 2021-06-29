@@ -3,6 +3,7 @@ import { Input } from "../../components/Input"
 import '../../styles/home.scss'
 import { useEffect, useState } from "react";
 import api from "../../services/api";
+import { Link } from "react-router-dom";
 
 interface Restaurant {
   id: number;
@@ -29,12 +30,14 @@ const Home = () => {
       <Input />
       <div className="home-restaurants">
         {restaurants.map(restaurant => (
+        <Link to={`${restaurant.id}`}>
           <Card 
             key={restaurant.id}
             name={restaurant.name}
             img={restaurant.image}
             description={restaurant.address}
           />
+        </Link>
         ))}
       </div>
     </div>
