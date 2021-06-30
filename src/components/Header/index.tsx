@@ -1,10 +1,13 @@
 import '../../styles/header.scss';
+import { Link } from "react-router-dom";
 
 export const Header = () => {
   return (
     <header className="header-container">
       <div className="header-content">
-        <span>Goomer</span>
+        <Link to="/">
+          <span>Goomer</span>
+        </Link>
       </div>
     </header>
   )

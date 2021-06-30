@@ -3,10 +3,11 @@ import '../../styles/restaurant-page.scss';
 import { Input } from '../../components/Input';
 import { Accordion } from '../../components/Accordion';
 import { Card } from '../../components/Card/index';
-import { Menu } from '../../components/Menu/index';
+// import { Menu } from '../../components/Menu/index';
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import api from '../../services/api';
+import { CardFood } from '../../components/CardFood';
 
 interface Restaurant {
   id: number;
@@ -33,6 +34,7 @@ const RestaurantPage = () => {
     async function getRestaurant() {
       const restaurantResponse = await api.get(`restaurants/${id}`);
       const restaurantMenuResponse = await api.get(`restaurants/${id}/menu`);
+     
       setMenu(restaurantMenuResponse.data);
       setRestaurant(restaurantResponse.data);
     }
@@ -55,18 +57,16 @@ const RestaurantPage = () => {
         </div>
       </div>
       <Input />
-        {menu?.map((item: any, index: any)=> (
-          <Accordion
-            key={item.group}
-            title={item.group}
-          >
-            <Card 
-              img={item.image} 
-              name={item.name} 
-              price={item.price}
+      <div className="restaurant-food">
+        {menu.map(food => (
+            <CardFood
+              key={food.name}
+              name={food.name}
+              img={food.image}
+              price={food.price}
             />
-          </Accordion>
-        ))}
+        ))} 
+      </div>
     </div>
   )
 }
