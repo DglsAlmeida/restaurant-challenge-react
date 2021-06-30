@@ -3,6 +3,7 @@ import { Input } from "../../components/Input"
 import '../../styles/home.scss'
 import { useEffect, useState } from "react";
 import api from "../../services/api";
+import restaurant from "../../store/modules/restaurant/reducer";
 
 interface Restaurant {
   id: number;
@@ -13,6 +14,8 @@ interface Restaurant {
 
 const Home = () => {
   const [ restaurants, setRestaurants ] = useState<Restaurant[]>([]);
+  const [ search, setSearch ] = useState("")
+  const [ filteredRestaurants, setFilteredRestaurants ] = useState<Restaurant[]>([]);
 
   useEffect(() => {
     async function getDatas() {
@@ -23,12 +26,20 @@ const Home = () => {
     getDatas();
   }, [])
 
+  useEffect(() => {
+    const filtered = restaurants.filter(restaurant => {
+      return restaurant.name.toLowerCase().includes(search.toLowerCase());
+    })
+
+    setFilteredRestaurants(filtered)
+  }, [search, restaurants])
+
   return (
     <div className="home">
       <span className="home-title">Bem vindo ao lista Rango</span>
-      <Input />
+      <Input type="text" value={search} onChange={event => setSearch(event.target.value)}/>
       <div className="home-restaurants">
-        {restaurants.map(restaurant => (
+        {filteredRestaurants.map(restaurant => (
           <Card 
             key={restaurant.id}
             name={restaurant.name}

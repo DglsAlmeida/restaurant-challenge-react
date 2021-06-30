@@ -28,7 +28,9 @@ const RestaurantPage = () => {
   const { id } = useParams<any>();
   
   const [ restaurant, setRestaurant ] = useState<Restaurant>();
-  const [ menu, setMenu ] = useState<any[]>([]);
+  const [ menu, setMenu ] = useState<Menu[]>([]);
+  const [ search, setSearch ] = useState("")
+  const [ filteredFoods, setFilteredFoods ] = useState<Menu[]>([]);
 
   useEffect(() => {
     async function getRestaurant() {
@@ -40,6 +42,15 @@ const RestaurantPage = () => {
     }
     getRestaurant();
   }, [id]);
+
+  
+  useEffect(() => {
+    const filtered = menu.filter(food => {
+      return food.name.toLowerCase().includes(search.toLowerCase());
+    })
+
+    setFilteredFoods(filtered)
+  }, [search, menu])
 
   return (
     <div className="restaurant-container">
@@ -56,9 +67,9 @@ const RestaurantPage = () => {
           <span>Domingo e Feriados <time>11:30</time> às <time>15:00</time></span>
         </div>
       </div>
-      <Input />
+      <Input type="text" value={search} onChange={event => setSearch(event.target.value)}/>
       <div className="restaurant-food">
-        {menu.map(food => (
+        {filteredFoods.map(food => (
             <CardFood
               key={food.name}
               name={food.name}

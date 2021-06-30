@@ -12,7 +12,7 @@ export const CardFood = ({ img, name, description, price }: CardFoodProps) => {
   return (
       <button className="card-food-content">
         <div className="card-food-img">
-          <img  src={img ? img : foodImg} alt="img" />
+          <img src={img ? img : foodImg} alt="food-img" />
         </div>
         <div className="card-food-description">
           <span className="card-food-title">{name}</span>
