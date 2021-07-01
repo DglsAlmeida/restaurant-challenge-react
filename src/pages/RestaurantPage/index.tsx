@@ -6,9 +6,6 @@ import { useParams } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
 import api from "../../services/api";
 import { CardFood } from "../../components/CardFood";
-import { useDispatch } from "react-redux";
-import { addProductToCart } from "../../store/modules/cart/actions";
-import { IProduct } from "../../store/modules/cart/types";
 import { ModalContent } from "../../components/ModalContent";
 import ModalCard, { ModalHandles } from "../../components/ModalCard";
 
@@ -28,7 +25,6 @@ interface Menu {
 
 Modal.setAppElement("#root");
 const RestaurantPage = () => {
-  const dispatch = useDispatch();
   const { id } = useParams<any>();
 
   // States to handle modal actions
@@ -58,10 +54,6 @@ const RestaurantPage = () => {
 
     setFilteredFoods(filtered);
   }, [search, menu]);
-
-  const handleAddProductToCart = (product: IProduct) => {
-    dispatch(addProductToCart(product));
-  };
 
   const openModal = (data: Menu) => {
     modalRef.current?.openModal();

@@ -2,6 +2,9 @@ import formatValue from "../../utils/formatValue";
 import { AiOutlinePlus, AiOutlineMinus, AiOutlineClose } from "react-icons/ai";
 import foodImg from "../../assets/food.png";
 import "../../styles/modal-content.scss";
+import { useDispatch } from "react-redux";
+import { addProductToCart } from "../../store/modules/cart/actions";
+import { IProduct } from "../../store/modules/cart/types";
 
 interface ModalInfo {
   name: string;
@@ -11,17 +14,26 @@ interface ModalInfo {
 
 interface ModalContentProps {
   modalInfo: ModalInfo;
-  handleCloseModal: () => void
+  handleCloseModal: () => void;
 }
 
-export const ModalContent = ({ modalInfo, handleCloseModal }: ModalContentProps) => {
+export const ModalContent = ({
+  modalInfo,
+  handleCloseModal,
+}: ModalContentProps) => {
+  const dispatch = useDispatch();
+
+  const handleAddProductToCart = (product: any) => {
+    dispatch(addProductToCart(product));
+  };
+
   return (
     <div className="modal-content">
       <div className="modal-image">
         <img src={modalInfo.image ? modalInfo.image : foodImg} alt="img" />
       </div>
       <button className="modal-close-button" onClick={handleCloseModal}>
-        <AiOutlineClose size={26}/>
+        <AiOutlineClose size={26} />
       </button>
       <div className="modal-description">
         <span className="modal-title">{modalInfo.name}</span>
@@ -45,7 +57,7 @@ export const ModalContent = ({ modalInfo, handleCloseModal }: ModalContentProps)
           </button>
         </div>
         <div className="modal-button-add-content">
-          <button>
+          <button onClick={() => handleAddProductToCart(modalInfo)}>
             <span>Adicionar</span>
             <span>{formatValue(modalInfo.price)}</span>
           </button>

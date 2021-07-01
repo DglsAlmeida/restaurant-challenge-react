@@ -26,13 +26,22 @@
       background: #fff;
     }
   }
+
+  @media (max-width: 425px) {
+    .home-title {
+      font-size: 1.2rem;
+    }
+  }
 }
 
 .home-restaurants {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-column-gap: 15px;
-  // padding: 20px 60px;
   width: 100%;
+
+  @media (max-width:1025px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
   
 }

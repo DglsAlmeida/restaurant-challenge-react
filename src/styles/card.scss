@@ -18,6 +18,40 @@
       width: 100%;
     }
   }
+
+  @media (max-width:768px) {
+    height: 130px;
+    margin-bottom: 0px;
+
+    .card-img {
+      height: 100%;
+      width: 200px;
+      
+      img {
+        height: 130px;
+        width: 100%;
+      }
+    }
+  }
+  
+  @media (max-width: 425px) {
+    height: 100px;
+
+    &:last-child {
+      margin-bottom: 12px;
+    }
+
+    .card-img {
+      height: 100%;
+      width: 150px;
+      
+      img {
+        height: 100px;
+        width: 100%;
+      }
+    }
+  }
+
 }
 
 .card-description {
@@ -32,6 +66,18 @@
   p {
     font-size: 1rem;
     margin: 5px 0 10px 0;
+  }
+
+  @media (max-width: 425px) {
+    padding: 8px;
+
+    .card-title {
+      font-size: 0.875rem;
+    }
+
+    p {
+      font-size: 0.875rem;
+    }
   }
 
 }

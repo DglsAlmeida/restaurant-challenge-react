@@ -19,6 +19,21 @@
       width: 100%;
     }
   }
+
+  @media (max-width:768px) {
+    height: 130px;
+    margin-bottom: 0px;
+
+    .card-food-img {
+      height: 100%;
+      width: 200px;
+      
+      img {
+        height: 130px;
+        width: 100%;
+      }
+    }
+  }
 }
 
 .card-food-description {
@@ -43,5 +58,21 @@
     font-size: 1.2rem;
     color: #009CA3;
     font-weight: bold;
+  }
+
+  @media (max-width: 425px) {
+    padding: 8px;
+
+    .card-food-title {
+      font-size: 0.875rem;
+    }
+
+    p {
+      font-size: 0.875rem;
+    }
+    
+    span {
+      font-size: 1rem;
+    }
   }
 }

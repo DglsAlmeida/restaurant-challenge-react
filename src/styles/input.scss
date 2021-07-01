@@ -21,6 +21,12 @@
       height: 24px;
     }
   }
+
+  @media (max-width: 425px) {
+    svg {
+      height: 16px;
+    }
+  }
 }
 
 .input {
@@ -37,5 +43,9 @@
 
   @media (max-width:1025px) {
     height: 24px;
+  }
+
+  @media (max-width: 425px) {
+    font-size: 0.875rem;
   }
 }
