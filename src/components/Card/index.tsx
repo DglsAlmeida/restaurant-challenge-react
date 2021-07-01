@@ -1,5 +1,5 @@
-import { Link } from 'react-router-dom';
-import '../../styles/card.scss';
+import { Link } from "react-router-dom";
+import "../../styles/card.scss";
 
 interface CardProps {
   img: string;
@@ -17,8 +17,8 @@ export const Card = ({ img, name, description, price, path }: CardProps) => {
       </div>
       <div className="card-description">
         <span className="card-title">{name}</span>
-        { description && <p>{description}</p> }
+        {description && <p>{description}</p>}
       </div>
     </Link>
-  )
-}
+  );
+};

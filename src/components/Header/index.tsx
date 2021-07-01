@@ -1,4 +1,4 @@
-import '../../styles/header.scss';
+import "../../styles/header.scss";
 import { Link } from "react-router-dom";
 
 export const Header = () => {
@@ -10,5 +10,5 @@ export const Header = () => {
         </Link>
       </div>
     </header>
-  )
-}
+  );
+};
