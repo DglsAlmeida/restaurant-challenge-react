@@ -1,6 +1,6 @@
 import { combineReducers} from 'redux';
-import restaurant from './restaurant/reducer';
+import cart from './cart/reducer';
 
 export default combineReducers({
-  restaurant,
+  cart,
 })

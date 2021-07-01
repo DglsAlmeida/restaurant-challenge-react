@@ -3,7 +3,6 @@ import { Input } from "../../components/Input"
 import '../../styles/home.scss'
 import { useEffect, useState } from "react";
 import api from "../../services/api";
-import restaurant from "../../store/modules/restaurant/reducer";
 
 interface Restaurant {
   id: number;
