@@ -1,46 +1,50 @@
-# Getting Started with Create React App
+![The San Juan Mountains are beautiful!](https://raw.githubusercontent.com/goomerdev/job-dev-frontend-interview/master/media/logo-azul.png)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Tecnologias :computer:
 
-## Available Scripts
+- React
+- TypeScript
+- SASS
+- Redux
 
-In the project directory, you can run:
+## O porque utilizei algumas tecnologias :pushpin:
 
-### `yarn start`
+### TypeScript
+Como era um restaurante, o typescript se torna interessante, pois precisei tipar meu código em vários momentos
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Redux
+Utilizei o redux pois precisava controlar o estado do meu carrinho (Adicionar, remover e atualizar), e para fazer as alterações dos meus estados, utilizei junto ao redux, o immer, um pacote que permite trabalhar com o estado imutável de uma maneira mais conveniente.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Funcionalidades 🚀
 
-### `yarn test`
+- [x] A aplicação está praticamente toda responsiva, ficaram poucos detalhes
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Home page
+- [x] Pesquisar por um determinado restaurante
+- [x] Clicar no restaurante e ser redirecionado para a página dele 
 
-### `yarn build`
+### Restaurant page
+- [x] Pesquisar por uma determinada comida 
+- [x] Clicando em algum item, será aberto um modal e você podera adicionar um item ao carrinho
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Cart page
+- [x] No componente header, ao lado do botão cart, se tiver algum item no carrinho, ele mostra a quantidade
+- [x] Aumentar ou diminuir a quantidade de determinado produto
+- [x] remover o produto 
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## O que pode melhorar ? :test_tube:
+- Listar as refeições por grupo, no restaurant page (Já deixei o componente de accordion pronto)
+- Mostrar se um restaurante tá aberto ou fechado com os dados que são retornado pela api, por questão de tempo, acabei não fazendo essa funcionalidade
+- Seria a interessante a API retornar um stock de cada produto, porque eu consegueria controlar a quantidade que pode ser adicionada
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Como utilizar :bangbang:
 
-### `yarn eject`
+Clone o repositorio
+- ``git clone https://github.com/DglsAlmeida/restaurant-challenge-react.git``
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Entre na raiz do repositório clonado
+- Rode ``yarn`` para instalar as dependências
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Depois rode ``yarn start``
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Por padrão a aplicação vai rodar em ``http://localhost:3000``
