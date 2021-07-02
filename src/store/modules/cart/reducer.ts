@@ -12,7 +12,7 @@ const cart: Reducer<ICartState> = (state = INITIAL_STATE, action) => {
       case 'ADD_PRODUCT_TO_CART': {
         const { product, quantity } = action.payload;
         
-        const productExists = draft.items.findIndex(item => item.product.id === product.id);
+        const productExists = draft.items.findIndex(item => item.product.name === product.name);
 
         if(productExists >= 0) {
           draft.items[productExists].quantity = quantity;
