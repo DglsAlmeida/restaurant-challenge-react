@@ -58,6 +58,17 @@
 
     a {
       height: 25px;
+      margin-left: auto;
+    }
+
+    svg {
+      height: 30px;
+    }
+
+    .items-quantity {
+      background: #fff;
+      padding: 2px 5px;
+      border-radius: 50%;
     }
   }
 }

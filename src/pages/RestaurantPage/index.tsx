@@ -1,7 +1,6 @@
 // import restaurantLogo from '../../assets/restaurant-logo.png';
 import "../../styles/restaurant-page.scss";
 import { Input } from "../../components/Input";
-import Modal from "react-modal";
 import { useParams } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
 import api from "../../services/api";
@@ -23,11 +22,9 @@ interface Menu {
   price: number;
 }
 
-Modal.setAppElement("#root");
 const RestaurantPage = () => {
   const { id } = useParams<any>();
 
-  // States to handle modal actions
   const [modalInfo, setModalInfo] = useState({} as Menu);
   const modalRef = useRef<ModalHandles>(null);
 
@@ -58,11 +55,11 @@ const RestaurantPage = () => {
   const openModal = (data: Menu) => {
     modalRef.current?.openModal();
     setModalInfo(data);
-  }
+  };
 
   const closeModal = () => {
-    modalRef.current?.closeModal()
-  }
+    modalRef.current?.closeModal();
+  };
 
   return (
     <div className="restaurant-container">
@@ -102,7 +99,7 @@ const RestaurantPage = () => {
         ))}
       </div>
       <ModalCard ref={modalRef}>
-        <ModalContent modalInfo={modalInfo} handleCloseModal={closeModal}/>
+        <ModalContent modalInfo={modalInfo} handleCloseModal={closeModal} />
       </ModalCard>
     </div>
   );

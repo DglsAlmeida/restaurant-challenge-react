@@ -35,6 +35,7 @@
     p {
       font-size: 1rem;
     }
+
   }
   
   .cart-quantity-and-trash {
@@ -51,6 +52,10 @@
       border: 0;
       background: transparent;
       width: 32px;
+    }
+
+    @media (max-width: 425px) {
+      margin-left: 20px;
     }
   }
 
@@ -97,8 +102,58 @@
       color: #009CA3;
     }
   }
+  
+  @media (max-width: 425px) {
+    height: 120px;
+    margin: 40px 0 8px 0;
+    width: 100%;
+
+    .cart-img {
+      width: 150px;
+    }
+  
+    .cart-description {
+      display: none;
+    }
+
+    .cart-button-add-quantity-content {
+      height: 24px;
+  
+      span {
+        font-size: 0.875rem;
+      }
+
+      svg {
+        height: 18px;
+      }
+    }
+
+    .cart-button-trash {
+      svg {
+        height: 18px;
+      }
+    }
+
+    .cart-total {
+      margin-right: 5px;
+      text-align: right;
+  
+      span:first-child {
+        font-size: 0.875rem;
+      }
+  
+      span:last-child {
+        font-size: 0.875rem;
+      }
+    }
+  }
+
 }
 
 .cart-empty {
   margin: 30px 0 0 30px;
+
+  @media (max-width: 425px) {
+    font-size: 0.875rem;
+  }
 }

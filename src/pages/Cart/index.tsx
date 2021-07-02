@@ -49,7 +49,7 @@ export const Cart = () => {
                   <AiOutlinePlus size={30} />
                 </button>
               </div>
-              <button onClick={() => handleRemoveProduct(item.product.name)}>
+              <button className="cart-button-trash" onClick={() => handleRemoveProduct(item.product.name)}>
                 <FaTrashAlt size={32} />
               </button>
             </div>

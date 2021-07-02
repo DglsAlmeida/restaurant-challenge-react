@@ -16,6 +16,7 @@ interface ModalCardProps {
   children: ReactNode;
 }
 
+Modal.setAppElement("#root");
 const ModalCard: ForwardRefRenderFunction<ModalHandles, ModalCardProps> = (
   { children },
   ref
