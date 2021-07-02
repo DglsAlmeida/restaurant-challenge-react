@@ -5,11 +5,10 @@ interface CardProps {
   img: string;
   name: string;
   description?: string;
-  price?: number;
   path: string;
 }
 
-export const Card = ({ img, name, description, price, path }: CardProps) => {
+export const Card = ({ img, name, description, path }: CardProps) => {
   return (
     <Link to={path} className="card-content">
       <div className="card-img">
