@@ -5,6 +5,7 @@ import "../../styles/modal-content.scss";
 import { useDispatch } from "react-redux";
 import { addProductToCart } from "../../store/modules/cart/actions";
 import { IProduct } from "../../store/modules/cart/types";
+import { useState } from "react";
 
 interface ModalInfo {
   name: string;
@@ -23,8 +24,21 @@ export const ModalContent = ({
 }: ModalContentProps) => {
   const dispatch = useDispatch();
 
-  const handleAddProductToCart = (product: any) => {
-    dispatch(addProductToCart(product));
+  const [quantity, setQuantity] = useState(1);
+
+  function incrementQuantity() {
+    setQuantity(quantity + 1)
+  }
+  
+  function decrementQuantity() {
+    if(quantity === 1) {
+      return;
+    }
+    setQuantity(quantity - 1)
+  }
+  
+  const handleAddProductToCart = (product: IProduct, quantity: number) => {
+    dispatch(addProductToCart(product, quantity));
   };
 
   return (
@@ -48,16 +62,16 @@ export const ModalContent = ({
       <hr className="modal-separator" />
       <div className="modal-buttons">
         <div className="modal-button-add-quantity-content">
-          <button>
+          <button onClick={decrementQuantity}>
             <AiOutlineMinus size={30} />
           </button>
-          <span>1</span>
-          <button>
+          <span>{quantity}</span>
+          <button onClick={incrementQuantity}>
             <AiOutlinePlus size={30} />
           </button>
         </div>
         <div className="modal-button-add-content">
-          <button onClick={() => handleAddProductToCart(modalInfo)}>
+          <button onClick={() => handleAddProductToCart(modalInfo, quantity)}>
             <span>Adicionar</span>
             <span>{formatValue(modalInfo.price)}</span>
           </button>
