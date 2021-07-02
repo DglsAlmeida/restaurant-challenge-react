@@ -44,7 +44,7 @@
     align-items: center;
 
     span {
-      font-size: 1.2rem;
+      font-size: 1rem;
       margin-bottom: 8px;
     }
 
@@ -100,6 +100,59 @@
       font-size: 1.5rem;
       font-weight: bold;
       color: #009CA3;
+    }
+  }
+
+  @media (max-width: 768px) {
+    height: 150px;
+    margin: 40px 0 8px 0;
+    width: 100%;
+
+    .cart-img {
+      width: 200px;
+    }
+  
+    .cart-description {
+      width: 130px;
+
+      span {
+        font-size: 1rem;
+      }
+  
+      p {
+        font-size: 0.875rem;
+      }
+    }
+
+    .cart-button-add-quantity-content {
+      height: 28px;
+  
+      span {
+        font-size: 0.875rem;
+      }
+
+      svg {
+        height: 18px;
+      }
+    }
+
+    .cart-button-trash {
+      svg {
+        height: 20px;
+      }
+    }
+
+    .cart-total {
+      margin-right: 20px;
+      text-align: right;
+  
+      span:first-child {
+        font-size: 1rem;
+      }
+  
+      span:last-child {
+        font-size: 1rem;
+      }
     }
   }
   

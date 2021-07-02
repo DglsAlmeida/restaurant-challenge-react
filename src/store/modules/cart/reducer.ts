@@ -30,7 +30,6 @@ const cart: Reducer<ICartState> = (state = INITIAL_STATE, action) => {
         if(productIndex >= 0) {
           draft.items.splice(productIndex, 1)
         }
-
         break
       }
       case 'UPDATE_PRODUCT_QUANTITY': {

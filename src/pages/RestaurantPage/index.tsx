@@ -7,12 +7,21 @@ import api from "../../services/api";
 import { CardFood } from "../../components/CardFood";
 import { ModalContent } from "../../components/ModalContent";
 import ModalCard, { ModalHandles } from "../../components/ModalCard";
+import { format, parseISO } from "date-fns/esm";
+import ptBR from 'date-fns/locale/pt-BR';
+import fi from "date-fns/esm/locale/fi/index.js";
+import { couldStartTrivia } from "typescript";
 
 interface Restaurant {
   id: number;
   image: string;
   name: string;
   address: string;
+  hours: {
+    days: number[];
+    from: string;
+    to: string;
+  }[];
 }
 
 interface Menu {
@@ -40,6 +49,7 @@ const RestaurantPage = () => {
 
       setMenu(restaurantMenuResponse.data);
       setRestaurant(restaurantResponse.data);
+      console.log(restaurantResponse.data)
     }
     getRestaurant();
   }, [id]);
