@@ -37,6 +37,13 @@ Utilizei o redux pois precisava controlar o estado do meu carrinho (Adicionar, r
 - Mostrar se um restaurante tá aberto ou fechado com os dados que são retornado pela api, por questão de tempo, acabei não fazendo essa funcionalidade
 - Seria a interessante a API retornar um stock de cada produto, porque eu consegueria controlar a quantidade que pode ser adicionada
 
+## Principais desafios :grimacing:
+
+- A API não retorna descrições para os produtos, então foram mantidos os textos Lorem Ipsum como descrições.
+- Em alguns casos a API não retornava a imagem, tive que colocar uma imagem por padrão.
+- Apesar de não especificado no desafio ou design, uma versão mobile também foi desenvolvida.
+- O mais desafiador foi implementar toda a lógica do redux.
+
 ## Como utilizar :bangbang:
 
 Clone o repositorio
