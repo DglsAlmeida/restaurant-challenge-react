@@ -24,7 +24,7 @@ Utilizei o redux pois precisava controlar o estado do meu carrinho (Adicionar, r
 - [x] Clicar no restaurante e ser redirecionado para a página dele 
 
 ### Restaurant page
-- [x] Pesquisar por uma determinada comida 
+- [x] Listar as refeições por grupo e pesquisar por uma determinada comida 
 - [x] Clicando em algum item, será aberto um modal e você podera adicionar um item ao carrinho
 
 ### Cart page
@@ -33,7 +33,6 @@ Utilizei o redux pois precisava controlar o estado do meu carrinho (Adicionar, r
 - [x] remover o produto 
 
 ## O que pode melhorar ? :test_tube:
-- Listar as refeições por grupo, no restaurant page (Já deixei o componente de accordion pronto)
 - Mostrar se um restaurante tá aberto ou fechado com os dados que são retornado pela api, por questão de tempo, acabei não fazendo essa funcionalidade
 - Seria a interessante a API retornar um stock de cada produto, porque eu consegueria controlar a quantidade que pode ser adicionada
 
