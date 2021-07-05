@@ -11,6 +11,7 @@
 .accordion-button {
   cursor: pointer;
   outline: none;
+  width: 100%;
   padding: 1.125rem;
   border: none;
   display: flex;
@@ -41,6 +42,11 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-column-gap: 15px;
+  width: 100%;
+
+  @media (max-width:1025px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
 
 .accordion-text {

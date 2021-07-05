@@ -4,13 +4,9 @@ import { Input } from "../../components/Input";
 import { useParams } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
 import api from "../../services/api";
-import { CardFood } from "../../components/CardFood";
 import { ModalContent } from "../../components/ModalContent";
 import ModalCard, { ModalHandles } from "../../components/ModalCard";
-import { format, parseISO } from "date-fns/esm";
-import ptBR from 'date-fns/locale/pt-BR';
-import fi from "date-fns/esm/locale/fi/index.js";
-import { couldStartTrivia } from "typescript";
+import { Accordion } from "../../components/Accordion";
 
 interface Restaurant {
   id: number;
@@ -24,7 +20,7 @@ interface Restaurant {
   }[];
 }
 
-interface Menu {
+export interface Menu {
   group: string;
   image: string;
   name: string;
@@ -38,29 +34,36 @@ const RestaurantPage = () => {
   const modalRef = useRef<ModalHandles>(null);
 
   const [restaurant, setRestaurant] = useState<Restaurant>();
-  const [menu, setMenu] = useState<Menu[]>([]);
+  const [menu, setMenu] = useState<Menu>({} as Menu);
   const [search, setSearch] = useState("");
-  const [filteredFoods, setFilteredFoods] = useState<Menu[]>([]);
 
   useEffect(() => {
     async function getRestaurant() {
       const restaurantResponse = await api.get(`restaurants/${id}`);
       const restaurantMenuResponse = await api.get(`restaurants/${id}/menu`);
 
-      setMenu(restaurantMenuResponse.data);
+      const filteredMenu = restaurantMenuResponse.data.reduce(
+        (accumulator: any, currentValue: any) => {
+          const group = currentValue.group;
+
+          if (!accumulator.hasOwnProperty(group)) {
+            accumulator[group] = [];
+          }
+          accumulator[group].push({
+            name: currentValue.name,
+            price: currentValue.price,
+            image: currentValue.image,
+          });
+          return accumulator;
+        },
+        {}
+      );
+
+      setMenu(filteredMenu);
       setRestaurant(restaurantResponse.data);
-      console.log(restaurantResponse.data)
     }
     getRestaurant();
   }, [id]);
-
-  useEffect(() => {
-    const filtered = menu.filter((food) => {
-      return food.name.toLowerCase().includes(search.toLowerCase());
-    });
-
-    setFilteredFoods(filtered);
-  }, [search, menu]);
 
   const openModal = (data: Menu) => {
     modalRef.current?.openModal();
@@ -98,13 +101,13 @@ const RestaurantPage = () => {
         onChange={(event) => setSearch(event.target.value)}
       />
       <div className="restaurant-food">
-        {filteredFoods.map((food: any) => (
-          <CardFood
-            key={food.name}
-            name={food.name}
-            img={food.image}
-            price={food.price}
-            onClick={() => openModal(food)}
+        {Object.entries(menu).map(([key, foods]) => (
+          <Accordion
+            key={key}
+            title={key}
+            content={foods}
+            openModal={openModal}
+            search={search}
           />
         ))}
       </div>
