@@ -34,7 +34,7 @@ Utilizei o redux pois precisava controlar o estado do meu carrinho (Adicionar, r
 
 ## O que pode melhorar ? :test_tube:
 - Mostrar se um restaurante tá aberto ou fechado com os dados que são retornado pela api, por questão de tempo, acabei não fazendo essa funcionalidade
-- Seria a interessante a API retornar um stock de cada produto, porque eu consegueria controlar a quantidade que pode ser adicionada
+- Seria a interessante a API retornar um stock de cada produto, porque eu conseguiria controlar a quantidade que pode ser adicionada
 
 ## Principais desafios :grimacing:
 
