@@ -21,6 +21,7 @@ const Home = () => {
   useEffect(() => {
     async function getDatas() {
       const response = await api.get("restaurants");
+
       setRestaurants(response.data);
     }
 

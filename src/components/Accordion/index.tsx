@@ -1,13 +1,23 @@
 import { ReactElement, useState } from "react";
 import "../../styles/accordion.scss";
 import chevronRight from "../../assets/chevron-right.svg";
+import { CardFood } from "../CardFood";
+import { Menu } from "../../pages/RestaurantPage";
 
 interface AccordionProps {
   title: string;
-  children: ReactElement;
+  children?: ReactElement;
+  content: Menu[];
+  openModal: (data: Menu) => void;
+  search: string;
 }
 
-export const Accordion = ({ title, children }: AccordionProps) => {
+export const Accordion = ({
+  title,
+  content,
+  search,
+  openModal,
+}: AccordionProps) => {
   const [active, setActive] = useState("");
   const [height, setHeight] = useState("0px");
   const [rotate, setRotate] = useState("accordion-icon");
@@ -28,7 +38,19 @@ export const Accordion = ({ title, children }: AccordionProps) => {
         <img className={`${rotate}`} src={chevronRight} alt="chevron-right" />
       </button>
       <div style={{ height: `${height}` }} className="accordion-content">
-        {children}
+        {content.map((item) => {
+          if (item.name.toLowerCase().includes(search.toLowerCase())) {
+            return (
+              <CardFood
+                key={item.name}
+                name={item.name}
+                img={item.image}
+                price={item.price}
+                onClick={() => openModal(item)}
+              />
+            );
+          }
+        })}
       </div>
     </div>
   );
